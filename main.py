@@ -5,7 +5,7 @@ import pandas as pd
 # Initialize SparkSession
 spark = SparkSession.builder.appName("PatientDataGenerator").getOrCreate()
 
-# Sample patient data (replace this with your actual table or data source)
+# Sample patient data
 data = [
     {"patient_id": 1234, "region": "North", "sales": 100, "year": 2021},
     {"patient_id": 1252, "region": "North", "sales": 150, "year": 2022},
@@ -30,10 +30,10 @@ df = spark.createDataFrame(data, schema)
 df1 = pd.DataFrame(data)
 df1["sales"] = df1["sales"].abs()
 
-# Step 2: Retrieve rows where patient_id is 0 but sales is not 0
+# Retrieve rows where patient_id is 0 but sales is not 0
 invalid_patient_data = df1[(df1['patient_id'] == 0) & (df1['sales'] != 0)]
 
-# Step 3: Remove rows where patient_id is 0 and sales is also 0
+# Remove rows where patient_id is 0 and sales is also 0
 df1 = df1[~((df1['patient_id'] == 0) & (df1['sales'] == 0))]
 print(df1)
 
