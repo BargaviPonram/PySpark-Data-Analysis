@@ -1,7 +1,4 @@
-# PySpark-Data-Analysis
-
 # PySpark Data Analysis
-
 This project is designed for data processing and analysis using PySpark. It focuses on handling patient data, calculating total sales, and determining year-over-year growth across different regions.
 
 ## Project Structure
